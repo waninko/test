@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moveIT</title>
+    <style>
+        #board{
+            background-color: burlywood;
+            height: 500px;
+            width: 800px;
+        }
+        #player{
+            background-image: url('img/bird.png');
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            /* position: fixed;
+            top:450px;
+            left: 10px; */
+        }
+
+    </style>
+</head>
+<body>
+ <div id="board"></div>
+ <div id="player"></div>
+ <button onclick="moveLeft()">Left!</button>
+ <button onclick="moveRight()">Right!</button>
+ <button onclick="moveUp()">Up!</button>
+ <button onclick="moveDown()">Down!</button>
+
+    <script>
+       const board = document.getElementById('board');
+       const player = document.getElementById('player');
+       let stepSize = 20;
+       let xPosition = 0;
+       let yPosition = 0;
+
+       function moveRight(){
+        xPosition += stepSize;
+       getPosition()
+       }
+
+       function moveLeft(){
+           xPosition -= stepSize;
+           getPosition()
+       }
+
+       function moveUp(){
+        yPosition -= stepSize;
+        getPosition()
+       }
+
+       function moveDown(){
+        yPosition += stepSize;
+        getPosition();
+       }
+
+       function getPosition(){
+        player.style.position = 'relative';
+        player.style.transform ="translate(" + xPosition + "px , " + yPosition + "px)";
+        //player.style.transform ="translate(" + yPosition + "px)";
+       }
+
+
+    </script>
+</body>
+</html>
